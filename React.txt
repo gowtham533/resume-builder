@@ -1,0 +1,61 @@
+1. key features of react
+    - it supports jsx
+    - react is component based architecture
+    - use virtual DOM for fast rendering
+    - only focused on one way data flow with reusable UI components(parent to child)
+    - react hooks
+2. How reacts solve the problems
+    - react solve the problems of building dynamic, complex and interactive UIs efficiently
+    - react's virtual DOM and component system makes UI updates faster and more organised
+3. react is a framework or library
+    - react is a javascript library because it only focus on building UIs
+    - it manages only the view layer
+    - helps to manage how data is displayed on the screen
+4. how react makes easier to make UIs
+    - react breaks UI into reusable components
+    - use virtual DOM to manage and update UIs
+    - each component has its own logic and structure
+    - only focused on one way data flow with reusable UI components
+    - No need to manually manipulate the DOM
+5.Steps to set up a basic React development environment
+    -Install Node.js and npm – Required to run React and manage dependencies.
+    -Install a code editor – Commonly Visual Studio Code.
+    -Create a new React app – Run npx create-react-app my-app.
+    -Navigate to your app folder – Use cd my-app.
+    -Start the development server – Run npm start.
+6.Files & Folder Structure of react app using vite
+    - vite.config.js : vite configuaration file for react app
+    - README.md : project documentation file
+    - package.json :  configuaration file for project 
+    - package-lock.json : details version of packages installed in project
+    - .gitignore : used to mention files or folders to be ignored in git 
+    - eslint.config.js : configuaration file for js code quality check 
+    - index.html : entry point of app 
+    - node_modules folder : holding copies of packages installed in the project, so that project can use package from node_modules instead of internet, inorder  to create node_modules in a project using command : npm install
+    - public folder : used to hold items that can accessed from any where in the project 
+    - src folder : is the folder where react app logic is given
+        - main.jsx : used to display react app in browser
+            - createRoot() : create a root to display React components inside a browser DOM node.
+     - index.css : global css file
+    - App.jsx : is a component file, which is the root component of react app
+    - App.css : css file for App.jsx
+    - asset folder : used to hold image, video... of a project
+3. How to start the development server and view your React app
+    -Open the terminal in your React project folder.
+    -Type npm start and press Enter.
+    -The development server will start automatically.
+    -Your browser opens automatically at http://localhost:3000/
+    showing your React app.
+4. Common code editors or IDEs for React development
+    -Visual Studio Code (VS Code)
+    -WebStorm
+    -Sublime Text
+    -Atom
+    -Brackets
+    (VS Code is the most popular because it supports React extensions and debugging easily.)
+5. What is Babel and why it’s used in React
+    -Babel is a JavaScript compiler.
+    -It converts modern ES6+ code and JSX (React syntax) into plain JavaScript that browsers can understand.
+    -Helps React developers use the latest JS features safely.
+    -Ensures cross-browser compatibility.
+    -Works with tools like Webpack for building and bundling code.
