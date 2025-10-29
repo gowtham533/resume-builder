@@ -59,3 +59,12 @@
     -Helps React developers use the latest JS features safely.
     -Ensures cross-browser compatibility.
     -Works with tools like Webpack for building and bundling code.
+-------------------------------------------------------------------------------------------------
+react project creation
+
+1.using vite create project : npm vite@latest project-name -- --template react
+2.remove unwanted codes from project(css file,app componentfile unwanted data)
+3.install or link libraries used to create project like bootstrap,fonts etc..
+4.create page folder inside scr folder and create components for the project
+5.create component folder inside scr folder, componets for the part of the pages
+6.set up path for components in page folder
