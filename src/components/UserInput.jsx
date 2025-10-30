@@ -37,7 +37,13 @@ function UserInput() {
     summary:""
 
   })
+
+  // reference to skill input tag
+  const skillRef = React.useRef()
+
+
   console.log(resumeDetails);
+  
   
 
   const isStepOptional = (step) => {
@@ -82,6 +88,19 @@ function UserInput() {
     setActiveStep(0);
   };
 
+const addSkill = (skill)=>{
+  if(resumeDetails.userSkill.includes(skill)){
+    alert("The given skill is already added...Add another")
+  }else{
+    setResumeDetails({...resumeDetails,userSkill:[...resumeDetails.userSkill,skill]})
+    // to clear text box
+    skillRef.current.value = ""
+  }
+}
+
+const removeSkill = (skill)=>{
+  setResumeDetails({...resumeDetails,userSkill:resumeDetails.userSkill.filter(item=>item!=skill)})
+} 
 
   const renderSteps = (stepCount)=>{
     switch(stepCount){
@@ -133,20 +152,27 @@ function UserInput() {
             <div>
                 <h3>Skills </h3>
                 <div className='d-flex align-items-center justify-content-center p-3 w-100'>
-                <input placeholder='Add Your Skills' className='w-100 p-2' type="text" />                 
-                <Button variant='text'>ADD</Button>
+                <input ref={skillRef} placeholder='Add Your Skills' className='w-100 p-2' type="text" />                 
+                <Button onClick={()=>addSkill(skillRef.current.value)} variant='text'>ADD</Button>
                 </div>
                 <h4>Suggestions</h4>
                 <div className='d-flex flex-wrap justify-content-between my-3'>
                   {
                     skillSuggestionArray.map((item,index)=>(
-                      <Button key={index} variant='outlined' className='m-1'>{item}</Button>
+                      <Button onClick={()=>addSkill(item)} key={index} variant='outlined' className='m-1'>{item}</Button>
                     ))
                   }
                 </div>
                 <h4>Added Skills</h4>
                 <div className='d-flex flex-wrap justify-content-between my-3'>
-                  <Button variant='contained' className='m-1'>NODE <HiXMark className='m-2' /></Button>
+                  {
+                    resumeDetails.userSkill?.length>0?
+                    resumeDetails.userSkill?.map((skill,index)=>(
+                  <Button variant='contained' className='m-1'>{skill}<HiXMark onClick={()=>removeSkill(skill)} className='m-2' /></Button>
+                    ))
+                    :
+                    <p className='fw-bolder'>No skills are added yet</p>
+                  }
                 </div>
             </div>
         )
