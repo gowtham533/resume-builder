@@ -7,36 +7,16 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { TextField } from '@mui/material';
 import { HiXMark } from "react-icons/hi2";
+import { addResume } from '../services/allAPI';
 
 const steps = ['Basic Information', 'Contact Details', 'Educational Details', 'Work Experience', 'Skills & Certifications', 'Review & Submit'];
 
-function UserInput() {
-  const skillSuggestionArray = ['NODE JS','MONGODB','EXPRESS JS','TAILWIND CSS','REACT','ANGULAR','COMMUNICATION','LEADERSHIP','COACHING','BOOTSTRAP','GIT','BOOTSTRAP','NEXT JS']
+function UserInput({resumeDetails,setResumeDetails}) {
+  const skillSuggestionArray = ['NODE JS','MONGODB','EXPRESS JS','TAILWIND CSS','REACT','ANGULAR','COMMUNICATION','LEADERSHIP','COACHING','BOOTSTRAP','GIT','POWER BI','NEXT JS']
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
 
-  // state for storing resume details
-  const [resumeDetails,setResumeDetails] = React.useState({
-    username:"",
-    jobtitle:"",
-    location:"",
-    email:"",
-    mobile:"",
-    github:"",
-    linkedin:"",
-    portfolio:"",
-    course:"",
-    college:"",
-    university:"",
-    passoutYear:"",
-    job:"",
-    company:"",
-    comLocation:"",
-    duration:"",
-    userSkill:[],
-    summary:""
-
-  })
+  
 
   // reference to skill input tag
   const skillRef = React.useRef()
@@ -102,7 +82,7 @@ const removeSkill = (skill)=>{
   setResumeDetails({...resumeDetails,userSkill:resumeDetails.userSkill.filter(item=>item!=skill)})
 } 
 
-  const renderSteps = (stepCount)=>{
+const renderSteps = (stepCount)=>{
     switch(stepCount){
         case 0 : return(
             <div>
@@ -188,6 +168,18 @@ const removeSkill = (skill)=>{
     }
   }
 
+const handleAddResume = async ()=>{
+  const {username,jobtitle,location} = resumeDetails
+    if(!username && !jobtitle && !location){
+      alert("Please fill the form completely")
+    }else{
+      // api
+      console.log("Api Call");
+      // success redirect view page
+      
+    }
+  }
+
   return (
     <Box sx={{ width: '100%' }}>
       <Stepper activeStep={activeStep}>
@@ -241,9 +233,11 @@ const removeSkill = (skill)=>{
                 Skip
               </Button>
             )}
-            <Button onClick={handleNext}>
-              {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-            </Button>
+            {activeStep === steps.length - 1 ? 
+            <Button onClick={handleAddResume}>Finish</Button>
+             : 
+             <Button onClick={handleNext}>Next</Button>}
+          
           </Box>
         </React.Fragment>
       )}
