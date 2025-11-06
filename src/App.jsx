@@ -22,7 +22,7 @@ function App() {
         <Route path='/history' element={<History/>} />
         {/* dynamic URL are prefix with column and dynamic value will be stored in variable after column
         eg- :id */}
-        <Route path='/resume/:id/view' element={<ViewResume/>}/>
+        <Route path='/resumes/:id/view' element={<ViewResume/>}/>
         <Route path='/*' element={<Pnf/>} />
       </Routes>
       <Footer/>

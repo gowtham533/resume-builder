@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import { TextField } from '@mui/material';
 import { HiXMark } from "react-icons/hi2";
 import { addResume } from '../services/allAPI';
+import { useNavigate } from 'react-router-dom';
 
 const steps = ['Basic Information', 'Contact Details', 'Educational Details', 'Work Experience', 'Skills & Certifications', 'Review & Submit'];
 
@@ -21,6 +22,8 @@ function UserInput({resumeDetails,setResumeDetails}) {
   // reference to skill input tag
   const skillRef = React.useRef()
 
+  // to navigate
+  const navigate = useNavigate()
 
   console.log(resumeDetails);
   
@@ -175,8 +178,19 @@ const handleAddResume = async ()=>{
     }else{
       // api
       console.log("Api Call");
-      // success redirect view page
       
+      try{
+        const result = await addResume(resumeDetails)
+        console.log(result);
+        if(result.status==201){
+          alert("resume added successfully")
+        const {id} = result.data
+        // success redirect view page
+        navigate(`/resumes/${id}/view`)
+      }
+    }catch(error){
+      console.log(error);
+    }
     }
   }
 
