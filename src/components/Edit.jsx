@@ -7,6 +7,8 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { TextField } from '@mui/material';
 import { HiXMark } from "react-icons/hi2";
+import { updateResume } from "../services/allAPI";
+import { resume } from 'react-dom/server';
 
 
 
@@ -40,6 +42,25 @@ function Edit({resumeDetails,setResumeDetails}) {
     setResumeDetails({...resumeDetails,userSkill:[...resumeDetails.userSkill,skill]})
     // to clear text box
     skillRef.current.value = ""
+  }
+}
+
+const handleResusmeUpdate = async ()=>{
+  const {id,username,jobtitle,location} = resumeDetails
+  if(!username && !jobtitle && !location){
+    alert(please)
+  }else{
+    console.log("Api call");
+    try{
+      const result = await updateResume(id,resumeDetails)
+      console.log(result);
+      if(result.status==200){
+        alert("Resume updated successfully")
+        handleClose()
+      }
+    }catch(err){
+      console.log(err);
+    }
   }
 }
 
@@ -128,7 +149,7 @@ const removeSkill = (skill)=>{
                 </div>
             </div>
             <div className="my-5">
-                <button className='btn btn-warning text-light'>update</button>
+                <button onClick={handleResusmeUpdate} className='btn btn-warning text-light'>update</button>
             </div>
           </Box>
         </Box>
