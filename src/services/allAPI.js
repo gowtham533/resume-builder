@@ -21,5 +21,13 @@ export const updateResume = async (id,resume)=>{
 export const addHistoryAPI = async (history)=>{
     return await commonAPI(`${ServerURL}/history`,"POST",history)
 }
+
 // get hstry api
+export const getHistoryAPI = async ()=>{
+    return await commonAPI(`${ServerURL}/history`,"GET",{})
+}
+
 // remove hstry api
+export const removeHistoryAPI = async (id)=>{
+    return await commonAPI(`${ServerURL}/history/${id}`,"DELETE",{})
+}

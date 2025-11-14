@@ -9,7 +9,7 @@ function LandingPage() {
       <section style={{width:'100%',height:'100vh',backgroundImage:"url('public/top-view-desk-concept-with-copy-space.jpg')",backgroundAttachment:'fixed',backgroundPosition:'top',backgroundSize:'cover'}} className='container-fluid row align-items-center'>
         <div className="row">
           <div className="col-md-4"></div>
-          <div className="col-md-4 shadow border py-5 rounded mt-5 text-center" style={{backgroundColor:'rgba(255,255,255,0.8)'}}>
+          <div className="col-md-4 shadow border py-5 rounded mt-5 text-center" style={{backgroundColor:'rgba(255,255,255,0.1)'}}>
             <h3>Designed to get hired. <br />
               Your skills, your story, your next job - All in one</h3>
             <Link to={'/resume'} className='btn text-white' style={{backgroundColor:'black'}}>Make your Resume</Link>
@@ -52,7 +52,7 @@ function LandingPage() {
       <h1 className='text-center my-5'>TESTIMONY</h1>
     <div className="container row align-items-center">
       <div className="col-md-5 ms-5">
-        <h4 className='fst-italic fw-bold'>Trusted by professionals worldwide</h4>
+        <h4 className='fst-italic fw-bold text-center'>Trusted by professionals worldwide</h4>
       
       <p className='fs-5' style={{textAlign:'justify'}}>At LiveCareer, we don't just help you create résumés — we help you land the job. Whether you're a seasoned professional or just starting out, our tools are designed to get results.</p>
 
